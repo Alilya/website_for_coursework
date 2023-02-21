@@ -384,3 +384,42 @@ body{
 .button-price:hover{
     background-color: #ababab;
 }
+.sign-main>div{
+    color:#000000;
+    border:1px solid #b3b3b3;
+    width: 50%;
+    align-items: center;
+    margin: 20px;
+    padding: center;
+    padding: 10px;
+}
+.check-box-sign{
+   width: 300px;
+}
+.checkbox{
+    position: relative;
+    display: inline-block;
+    height: 20px;
+    width: 50%;
+}
+
+.button-sign{
+    display: flex;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    background-color: rgb(0, 0, 0);
+    border: 1px solid;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 5px;
+    margin-left: 50px;
+    padding-left: 30px;
+    align-items: center;
+    width: 300px;
+    height: 60px;   
+    
+}
+.input-age{
+    width: auto;
+}
