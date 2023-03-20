@@ -1,108 +1,132 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-    <title>Студия танца "Piter"</title>
-    <link href="style.css" rel="stylesheet">
+  <title>Студия танца "Piter"</title>
+  <link href="style.css" rel="stylesheet">
 </head>
+
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <a href="Dance.html" class="navbar-brand">Dance</a>
-            <div class="navbar-wrap">
-             <ul class="navbar-menu">
-                <li><a href="Dance.html">Главная</a></li>
-                <li><a href="sign_up.html">Запись на занятия</a></li>
-                <li><a href="timing.html">Расписание</a></li>
-                <li><a href="price.html">Цены на абонементы</a></li>
-                <li><a href="tutors.html">Педагоги</a></li>
-                <li><a href="directions.html">Направления</a></li>
-                <li><a href="#">Контакты</a></li>
-             </ul>
-             </div>
-        </div>
+  <nav class="navbar">
+    <div class="container">
+      <a href="Dance.html" class="navbar-brand">Dance</a>
+      <div class="navbar-wrap">
+        <ul class="navbar-menu">
+          <li><a href="Dance.html">Главная</a></li>
+          <li><a href="sign_up.html">Запись на занятия</a></li>
+          <li><a href="timing.html">Расписание</a></li>
+          <li><a href="price.html">Цены на абонементы</a></li>
+          <li><a href="tutors.html">Педагоги</a></li>
+          <li><a href="directions.html">Направления</a></li>
+        </ul>
+      </div>
+    </div>
     </nav.navbar>
-    <div class="sign-main">
-    <div class="input-name">
-        <input type="text" autocomplete="name" name="Name" 
-        value="" 
-        placeholder="Ваши ФИО" 
-        data-tilda-req="1" data-tilda-rule="name" >
-    </div>
 
 
-    <div class="input-nomber">
-        <input type="tel" 
-         name="tildaspec-phone-part[]" 
-         value="" placeholder="(999) 999-99-99" 
-         data-phonemask-iso="ru" 
-         data-phonemask-code="+7" 
-         data-phonemask-mask="+7(999) 999-99-99" 
-         maxlength="15" 
-         data-phonemask-without-code="(999) 999-99-99">
-    </div>
 
-    <div>
-        <div class="input-text-age" data-redactor-toolbar="no" field="li_title__1673114423412" style="">Ваш возраст?</div>
-        <input type="text" name="Ваш возраст" class="input-age" value="" data-tilda-req="1">
-    </div>
+      <div class="main-sign">
+        <div class="text-sign">
+          <div class="input-sign">
+
+            <div class="input-name">
+              <input type="text" autocomplete="name" name="Name" value="" placeholder="Ваши ФИО" data-tilda-req="1"
+                data-tilda-rule="name">
+            </div>
+
+            <div class="input-nomber">
+              <input type="tel" name="tildaspec-phone-part[]" value="" placeholder="+7 (999) 999-99-99"
+                data-phonemask-iso="ru" data-phonemask-code="+7" data-phonemask-mask="+7(999) 999-99-99" maxlength="11"
+                data-phonemask-without-code="+7 (999) 999-99-99">
+            </div>
+
+            <div class="input-age">
+              <div class="input-text-age" data-redactor-toolbar="yes"></div>
+              <input type="text" placeholder="Ваш возраст" class="input-age" value="" data-tilda-req="1">
+            </div>
+
+          </div>
+          <div class="check-box-sign">
+
+            <label class="label-check-sign">
+              <input type="checkbox" class="type-check-sign">
+              <span class="fake"></span>
+              <span class="text-check-sign">Хип-хоп</span>
+            </label>
+
+            <label class="label-check-sign">
+              <input type="checkbox" class="type-check-sign">
+              <span class="fake"></span>
+              <span class="text-check-sign">Бальные танцы</span>
+            </label>
 
 
-    <div class="check-box-sign">
-        <div>
-            <input type="checkbox" name="hip-hop" checked>
-            <label for="hip-hop">Хип-хоп</label>
+            <label class="label-check-sign">
+              <input type="checkbox" class="type-check-sign">
+              <span class="fake"></span>
+              <span class="text-check-sign">Восточные танцы</span>
+            </label>
+
+            <label class="label-check-sign">
+              <input type="checkbox" class="type-check-sign">
+              <span class="fake"></span>
+              <span class="text-check-sign">Классический танец</span>
+            </label>
+
+            <label class="label-check-sign">
+              <input type="checkbox" class="type-check-sign">
+              <span class="fake"></span>
+              <span class="text-check-sign">Современный танец</span>
+            </label>
+
+            <label class="label-check-sign">
+              <input type="checkbox" class="type-check-sign">
+              <span class="fake"></span>
+              <span class="text-check-sign">Juzz-funk</span>
+            </label>
+
+            <label class="label-check-sign">
+              <input type="checkbox" class="type-check-sign">
+              <span class="fake"></span>
+              <span class="text-check-sign">Модерн</span>
+            </label>
+
+            <label class="label-check-sign">
+              <input type="checkbox" class="type-check-sign">
+              <span class="fake"></span>
+              <span class="text-check-sign">Контемпорари</span>
+            </label>
+
+            <label class="label-check-sign">
+              <input type="checkbox" class="type-check-sign">
+              <span class="fake"></span>
+              <span class="text-check-sign">Пластика</span>
+            </label>
+
           </div>
-          <div>
-            <input type="checkbox" name="balet" checked>
-            <label for="balet">Бальные танцы</label>
-          </div>
-          <div>
-            <input type="checkbox" name="east-dance" checked>
-            <label for="east-dance">Восточные танцы</label>
-          </div>
-          <div>
-            <input type="checkbox" name="classic-dance" checked>
-            <label for="classic-dance">Классический танец</label>
-          </div>
-          <div>
-            <input type="checkbox" name="new-dance" checked>
-            <label for="new-dance">Современный танец</label>
-          </div>
-          <div>
-            <input type="checkbox" name="juzz-funk" checked>
-            <label for="juzz-funk">Juzz-funk</label>
-          </div>
-          <div>
-            <input type="checkbox" name="modern" checked>
-            <label for="modern">Модерн</label>
-          </div>
-          <div>
-            <input type="checkbox" name="contemp" checked>
-            <label for="contemp">Контемпорари</label>
-          </div>
-          <div>
-            <input type="checkbox" name="plastica" checked>
-            <label for="plastica">Пластика</label>
-          </div>
+
           
-    </div>
-    <a href="sign_up.html" class="button-sign">Записатся на открытое занятие</a>
-</div>    
-</body>
-
-
-<footer>
-    <div class="footer-container">
-        <div class="row">
-            <div class="footer-name">
-               <p>Студия танца "DANCE"</p>
-            </div>
-            <div class="footer-number">
-                <p>Контакты: 89012345678</p>
-            </div>
-            <div class="footer-adres">
-                <p>Санкт-Петербург, ул.Малая, д.123.</p>                    
-            </div>
+          <button type="submit" href="sign_up.html" class="button-sign">Записаться на занятие</button>
         </div>
+
+        <div class="sign-img">
+          <img src="photo/1main.jpg">
+        </div>
+
+      </div>
+ </body>
+<footer>
+  <div class="footer-container">
+    <div class="row">
+      <div class="footer-name">
+        <p>Студия танца "DANCE"</p>
+      </div>
+      <div class="footer-number">
+        <p>Контакты: 89012345678</p>
+      </div>
+      <div class="footer-adres">
+        <p>Санкт-Петербург, ул.Малая, д.123.</p>
+      </div>
     </div>
+  </div>
 </footer>
