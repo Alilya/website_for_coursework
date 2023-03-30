@@ -1,5 +1,8 @@
-let a=0;
-for(let i=0;i<10;i++){
-    a+=1;
-}
-aler
+"use strict";
+document.forms[0].addEventListener("submit", (e) => {
+  e.preventDefault();
+  let inputs = e.target.elements;
+ 
+  alert(inputs.age.value);
+  alert(inputs.phone.value);
+});
