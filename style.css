@@ -358,7 +358,11 @@ body {
 /*price*/
 .price-main {
     width: 100%;
-
+    margin-top: 2%;
+}
+.price-main a{
+    text-decoration: none;
+    color: white;
 }
 
 .price-block {
@@ -426,7 +430,7 @@ body {
 /*sign*/
 .text-sign {
     width: 48%;
-    margin: 1%;
+    margin: 2%;
     padding-left: 1%;
 }
 
@@ -482,7 +486,7 @@ body {
     margin-top: 4%;
 }
 
-.button-sign {
+#button-sign {
     display: flex;
     background-color: rgb(0, 0, 0);
     font-size: 18px;
@@ -507,7 +511,7 @@ body {
     width: auto;
 }
 
-.button-sign:hover {
+#button-sign:hover {
     background-color: rgb(88, 88, 88);
 }
 
