@@ -20,3 +20,5 @@ document.forms[0].addEventListener("submit", (e) => {
   alert("Направления: " + values);
   e.target.reset();
 });
+
+
