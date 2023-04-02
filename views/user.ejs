@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Студия танца "Piter"</title>
+    <link href="/style.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <%- include ('blocks/nawbar') -%>
+    <h1>qwertyui</h1>
+    <h1>Страница пользователя: <%= username %></h1>
+
+    <% 
+    if(username.toLowerCase() == 'admin') { %>
+        <ul>
+      <% hobbies.forEach((el) => { %>
+         <li><%= el %></li>
+      <% }) %>
+        </ul>
+    <% } %> 
+    
+    <%- include ('blocks/footer') -%>
+  </body>
+</html>
