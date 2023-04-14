@@ -7,18 +7,22 @@
   </head>
   <body>
     <%- include ('blocks/nawbar') -%>
-    <h1>qwertyui</h1>
-    <h1>Страница пользователя: <%= username %></h1>
 
-    <% 
-    if(username.toLowerCase() == 'admin') { %>
-        <ul>
+    <h1>Страница пользователя: <%= username %></h1>
+    <p>Age: <%= age %></p>
+    <p>tel: <%= telephone %></p>
+
+    <% if(username == 'admin') { %>
+    <ul>
       <% hobbies.forEach((el) => { %>
-         <li><%= el %></li>
+      <li><%= el %></li>
       <% }) %>
-        </ul>
-    <% } %> 
-    
-    <%- include ('blocks/footer') -%>
+    </ul>
+
+    <% } %>
+    <img
+      src="https://steamuserimages-a.akamaihd.net/ugc/788625812202009487/4C8FE17EA8F5C2706B6E7C36E7C4A80240CCA41D/?imw=512&amp;imh=512&amp;ima=fit&amp;impolicy=Letterbox&amp;imcolor=%23000000&amp;letterbox=true"
+    />
   </body>
+  <%- include ('blocks/footer') -%>
 </html>

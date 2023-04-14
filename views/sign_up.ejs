@@ -6,21 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
-    <%- include ('blocks/nawbar') -%>
-
-    <form method="post" action="/check-user">
-      <input type="text" name="username" placeholder="Имя пользователя">
-      <button type="submit">ОК</button>
-    </form>
+    <%- include ('blocks/nawbar') -%>     
 
     <div class="main-sign">
-      <form name="my_form" class="text-sign">
+      <form method="post" action="/check-user" class="text-sign">
         <div class="input-sign">
           <div class="input-name">
             <input
               type="text"
               autocomplete="name"
-              name="Name"
+              name="username"
               value=""
               placeholder="Ваши ФИО"
               data-tilda-req="1"
@@ -31,12 +26,12 @@
           <div class="input-nomber">
             <input
               type="tel"
-              name="phone"
+              name="telephone"
               value=""
               placeholder="+7 (999) 999-99-99"
               data-phonemask-iso="ru"
               data-phonemask-code="+7"
-              data-phonemask-mask="+7(999) 999-99-99"
+              data-phonemask-mask="+7(999)999-99-99"
               maxlength="11"
               data-phonemask-without-code="+7 (999) 999-99-99"
             />
@@ -113,11 +108,12 @@
           </label>
         </div>
 
-        <button id="button-sign">Записаться на занятие</button>
+ 
+        <button type="submit" id="button-sign">Записаться на занятие</button>
       </form>
 
       <div class="sign-img">
-        <img src="photo/1main.jpg" />
+        <img src="https://i.pinimg.com/originals/f7/c6/c2/f7c6c2382b9679f84f2471cf936c7338.gif"/>
       </div>
     </div>
     <script src="script.js"></script>

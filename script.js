@@ -1,5 +1,5 @@
-"use strict"
-document.forms[0].addEventListener("submit", (e) => {
+"use strict";
+/*document.forms[0].addEventListener("submit", (e) => {
   e.preventDefault();
   let inputs = e.target.elements;
   alert(
@@ -19,4 +19,20 @@ document.forms[0].addEventListener("submit", (e) => {
   });
   alert("Направления: " + values);
   e.target.reset();
-});
+});*/
+
+if (document.readyState !== "loading") {
+  us_clickInterception();
+} else {
+  document.addEventListener("DOMContentLoaded", us_clickInterception);
+}
+
+function us_clickInterception() {
+  var links = document.querySelectorAll("<a");
+  Array.prototype.forEach.call(links, function (link) {
+    link.addEventListener("click", function () {
+      /* здесь пишем нужное действие */
+      alert('Click!');
+    });
+  });
+}
