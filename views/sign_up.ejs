@@ -7,9 +7,9 @@
   </head>
   <body>
     <%- include ('blocks/nawbar') -%>     
-
+    
     <div class="main-sign">
-      <form method="post" action="/check-user" class="text-sign">
+     <form method="post"  action="/check-user" class="text-sign">      <!-- -->
         <div class="input-sign">
           <div class="input-name">
             <input
@@ -108,15 +108,23 @@
           </label>
         </div>
 
+
  
-        <button type="submit" id="button-sign">Записаться на занятие</button>
+        <button type="submit" id="button-sign"  onmousedown="dbInsert()">Записаться на занятие</button>
       </form>
 
       <div class="sign-img">
         <img src="https://i.pinimg.com/originals/f7/c6/c2/f7c6c2382b9679f84f2471cf936c7338.gif"/>
       </div>
     </div>
-    <script src="script.js"></script>
+    <script>
+      console.log('hiiiiii client')
+      fetch("/db").then(response=> response.text()).then(responseText=> console.log(responseText));
+    </script>
+ 
+    </script>
+    <script src="/server.js"></script>
+    <script src="/script.js"></script>
   </body>
   <%- include ('blocks/footer') -%>
 </html>

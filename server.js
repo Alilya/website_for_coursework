@@ -1,24 +1,20 @@
 const express = require("express");
-
 const app = express();
-
+//const database = require("./database/db");
+//const Table = database.Table;
+const http = require("http");
+const fs = require("fs");
+require("dotenv").config();
 app.set("view engine", "ejs");
+
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static("public"));
 
+const PORT = process.env.PORT || 8081;
 
-const sqlite3 = require('sqlite3');
-  
-// Connecting Database
-let db = new sqlite3.Database(":memory:" , (err) => {
-    if(err){
-        console.log("Error Occurred - " + err.message);
-    }
-    else{
-        console.log("DataBase Connected");
-    }
-})
-
+app.listen(PORT, () => {
+  console.log(`Server started: http://localhost:${PORT}`);
+});
 
 app.get("/", (req, res) => {
   res.render("Dance");
@@ -44,74 +40,115 @@ app.get("/tutors", (req, res) => {
   res.render("tutors");
 });
 
+// app.get("/db.json", (req, res) => {
+//   console.log("я здесь");
+//   res.render("tutors");
+// });
 
+app.get("/user/:username", (req, res) => {
+  fetch("/db.json").then(function (response) {
+    response.text().then(function (text) {
+      user = text;
+      console.log(user);
+      user = JSON.parse(user);
+      console.log(user);
 
-try{
-  app.get("/user/:username", (req, res) => {
-    let data = {
-      username: req.params.username,
-      age: req.params.age,
-      telephone: req.params.telephone,
-      hobbies: ["Footbal", "Scate", "Flowers"],
-    };
-    console.log(req.params);
-    res.render("user", data);
+      // document.getElementById('textUser').innerHTML=user.id_user;
+    });
+    //  fs.readFile("sign_up.ejs", (err, data) => {res.end(data)
+    console.log(data);
   });
-  
-  app.post("/check-user", (req, res) => {
-    let username = req.body.username;
-    if (username == "") {
-      return res.redirect("sign_up");
-    } else {
-      return res.redirect("/user/" + username);
-    }
-  });
+  let data = {
+    username: req.params.username,
+    hobbies: ["Footbal", "Scate", "Flowers"],
+  };
+  //  console.log(req.params);
+  res.render("user", data);
+});
+
+app.post("/check-user", (req, res) => {
+  let username = req.body.username;
+  if (username == "") {
+    return res.redirect("/sign_up");
+  } else {
+    return res.redirect("/user/" + username);
+  }
+});
+
+// const { config } = require('dotenv');
+// const mysql= require('mysql');
+// const connection = mysql.createConnection({
+//   host:'localhost',
+//   user:'root',
+//   password:'4r3qcas5',
+//   database:'webdb'
+// });
+
+// connection.connect(err =>{
+//   if(err){
+//     console.log(err);
+//     return err;
+//   }
+//   else{
+//     console.log('database worked');
+//   }
+// })
+
+//  let query="SELECT * FROM user";
+
+//  connection.query(query,(err,result,field)=>{
+//   console.log(err);
+//   console.log(result);
+//   console.log(result[0]['name']);
+//  // console.log(field);
+//   return result;
+//  });
+
+//  connection.end(err=>{
+//   if(err){
+//     console.log(err);
+//     return err;
+//   }
+//   else{
+//     console.log('database stop');
+//   }
+//  })
+
+app.get("/db.json", (req, res) => {
+  console.log("я здесь");
+  res.render("tutors");
+
+ 
+});
+
+const mysql = require("mysql2/promise");
+const config = require("./config");
+
+async function main() {
+  const connection = await mysql.createConnection(config);
+  const [rows, fields] = await connection.execute(
+    "select * from user where id_user = 1"
+  );
+  // console.log(rows[0]['name']);
+  let select = await connection.execute("select * from user where id_user = 1");
+  // console.log(rows[0]['telephone']);
+  let myjson = JSON.stringify(select);
+  fs.writeFileSync("db.json", myjson);
+  connection.end();
+
+  return rows;
 }
-catch{
-  app.get((req, res) => {
-    res.render("error");
-  });
+async function as() {
+  let func = await main();
+  return func;
 }
+as();
 
-
-const PORT = 8080;
-app.listen(PORT, () => {
-  console.log(`Server started: http://localhost:${PORT}`);
-});
-
-
-/*
-const mysql = require("mysql");
- 
-const connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "4r3qcas5"
-});
- 
-connection.query("CREATE DATABASE mysql",
-  function(err, results) {
-    if(err) console.log(err);
-    else console.log("База данных создана");
-});
-  
-const sql = `create table if not exists users(
-  id int primary key auto_increment,
-  name varchar(255) not null,
-  age int not null
-)`;
- 
-connection.query(sql, function(err, results) {
-    if(err) console.log(err);
-    else console.log("Таблица создана");
-});
-
-
-const sqlIns= `INSERT INTO users(name, age) VALUES('Sam', 31)`;
- 
-connection.query(sqlIns, function(err, results) {
-    if(err) console.log(err);
-    console.log(results);
-});
-
-connection.end();*/
+// function writeToDb(data,res){
+//   data =JSON.parse(data,true);
+//   console.log(data);
+//   Table.create({
+//    id_bitton:data[]
+//    count_click:
+//   })
+// }

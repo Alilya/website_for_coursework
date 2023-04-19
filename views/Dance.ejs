@@ -1,49 +1,87 @@
 <!DOCTYPE html>
 <html lang="ru">
-
-<head>
+  <head>
     <title>Студия танца "Piter"</title>
-    <link href="/style.css" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-</head>
+    <link href="/style.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
 
-<body>
+  <body>
+    <!-- <h1 style="color: green">GeeksforGeeks</h1>
+    <h4>How to count the number of times a button is clicked?</h4>
+    <button id="btn">Click Here!</button>
+    <p>Button Clicked <span id="display">0</span> Times</p> -->
     <%- include ('blocks/nawbar') -%>
-        <div class="photo"><img src="https://damion.club/uploads/posts/2022-03/1646092582_31-damion-club-p-artisti-baleta-art-35.jpg"></div>
-        <div class="main">
-            <h1 class="h1-main">Студия танца</h1>
-            <div class="text-main">
-                <p>Танцевальная студия "DANCE" была открыта в 2018 году.</p>
-                <p>За 5 лет существования мы получили огромный опыт в области хореографии,который применяем в своей
-                    работе.
-                    Наши воспитанники занимаются не только танцами, но и вокалом, актерским мастерством,спортом, и
-                    конечно же, развитием своей личности.
-                    Студия не имеет возрастных ограничений для обучения.</p>
-                <p>Мы работаем для детей и подростков, людей среднего возраста, а также для тех, кто уже давно не
-                    танцует.
-                    В студии работают только профессиональные педагоги.</p>
-            </div>
-            <div class="button-container col-xs col-md col-lg">
-                <a href="/sign_up" class="button">Записаться на открытое занятие</a>
-            </div>
-            <div class="gallery-main">
-                <div class="img-gallary"><img src="https://avatars.mds.yandex.net/i?id=527ea9d3435ea88ab0d9172ada7913d18197fedb-9182252-images-thumbs&n=13&exp=1"></div>
-                <div class="img-gallary"><img src="https://c1.35photo.pro/photos_col/r2/127/638365_500r.jpg"></div>
-                <p class="cube-text">Танец это искусство, которое позволяет людям выразить себя, свою индивидуальность,
-                    свои эмоции и чувства.
-                    Выступая в паре, вы можете показать свою красоту, чувство ритма, грацию и грациозность.</p>
-                <p class="cube-text"> Это искусство требует большой практики и подготовки, но вы не пожалеете о
-                    потраченном времени, когда увидите себя на сцене.
-                    Танец - это не только искусство, это еще и средство для общения людей.
-                    В каждом танце есть свой смысл, который мы будем пытаться разгадать.</p>
-                <div class="img-gallary"><img src="https://i.pinimg.com/originals/ee/ca/58/eeca58edde801766ce4a7df1ea0d0849.jpg"></div>
-                <div class="img-gallary"><img src="https://avatars.mds.yandex.net/i?id=f4e1a7846dd5906bff7c1daf8cc3cb91-4012275-images-thumbs&n=13&exp=1"></div>
-                <div class="img-gallary"><img src="https://i.pinimg.com/originals/28/f4/87/28f48781567bae0dbd70336636b921f5.jpg"></div>
-                <div class="img-gallary"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/2b663c123817951.60f6ad3235c98.jpg"></div>
-            </div>
+
+    <div class="photo">
+      <img
+        src="https://damion.club/uploads/posts/2022-03/1646092582_31-damion-club-p-artisti-baleta-art-35.jpg"
+      />
+    </div>
+    <div class="main">
+      <h1 class="h1-main">Студия танца</h1>
+      <div class="text-main">
+        <p>Танцевальная студия "DANCE" была открыта в 2018 году.</p>
+        <p>
+          За 5 лет существования мы получили огромный опыт в области
+          хореографии,который применяем в своей работе. Наши воспитанники
+          занимаются не только танцами, но и вокалом, актерским
+          мастерством,спортом, и конечно же, развитием своей личности. Студия не
+          имеет возрастных ограничений для обучения.
+        </p>
+        <p>
+          Мы работаем для детей и подростков, людей среднего возраста, а также
+          для тех, кто уже давно не танцует. В студии работают только
+          профессиональные педагоги.
+        </p>
+      </div>
+      <div class="button-container" onmousedown="viewDiv()">
+        <a href="/sign_up" class="button">Записаться на открытое занятие</a>
+      </div>
+      <div class="gallery-main">
+        <div class="img-gallary">
+          <img
+            src="https://avatars.mds.yandex.net/i?id=527ea9d3435ea88ab0d9172ada7913d18197fedb-9182252-images-thumbs&n=13&exp=1"
+          />
         </div>
-        <%- include ('blocks/footer') -%>
-        <script src="script.js"></script>
-</body>
+        <div class="img-gallary">
+          <img src="https://c1.35photo.pro/photos_col/r2/127/638365_500r.jpg" />
+        </div>
+        <p class="cube-text">
+          Танец это искусство, которое позволяет людям выразить себя, свою
+          индивидуальность, свои эмоции и чувства. Выступая в паре, вы можете
+          показать свою красоту, чувство ритма, грацию и грациозность.
+        </p>
+        <p class="cube-text">
+          Это искусство требует большой практики и подготовки, но вы не
+          пожалеете о потраченном времени, когда увидите себя на сцене. Танец -
+          это не только искусство, это еще и средство для общения людей. В
+          каждом танце есть свой смысл, который мы будем пытаться разгадать.
+        </p>
+        <div class="img-gallary">
+          <img
+            src="https://i.pinimg.com/originals/ee/ca/58/eeca58edde801766ce4a7df1ea0d0849.jpg"
+          />
+        </div>
+        <div class="img-gallary">
+          <img
+            src="https://avatars.mds.yandex.net/i?id=f4e1a7846dd5906bff7c1daf8cc3cb91-4012275-images-thumbs&n=13&exp=1"
+          />
+        </div>
+        <div class="img-gallary">
+          <img
+            src="https://i.pinimg.com/originals/28/f4/87/28f48781567bae0dbd70336636b921f5.jpg"
+          />
+        </div>
+        <div class="img-gallary">
+          <img
+            src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/2b663c123817951.60f6ad3235c98.jpg"
+          />
+        </div>
+      </div>
+    </div>
+    <%- include ('blocks/footer') -%>
+    <script src="script.js"></script>
+    <script src="index.js"></script>
+  </body>
 </html>

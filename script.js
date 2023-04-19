@@ -19,20 +19,35 @@
   });
   alert("Направления: " + values);
   e.target.reset();
-});*/
+});
 
 if (document.readyState !== "loading") {
   us_clickInterception();
 } else {
   document.addEventListener("DOMContentLoaded", us_clickInterception);
-}
+}*/
+// function submitForm(){
+//   event.preventDefault();
+//   let form = document.querySelectorAll('form').elements;
+//   console.log(form);
+// }
 
-function us_clickInterception() {
-  var links = document.querySelectorAll("<a");
-  Array.prototype.forEach.call(links, function (link) {
-    link.addEventListener("click", function () {
-      /* здесь пишем нужное действие */
-      alert('Click!');
-    });
-  });
-}
+
+
+// function dbInsert() {
+//   let user=123;
+//   console.log('и я здесь');
+//   fetch("/db.json").then(function (response) {
+//     response.text().then(function (text) {
+//       user=text;
+//       console.log(user);
+//       user = JSON.parse(user);
+//       console.log(user);
+     
+//      // document.getElementById('textUser').innerHTML=user.id_user;
+
+//     });
+//   });
+// }
+// dbInsert();
+ document.addEventListener('click',dbInsert);
