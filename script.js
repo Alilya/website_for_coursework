@@ -32,22 +32,50 @@ if (document.readyState !== "loading") {
 //   console.log(form);
 // }
 
-
-
 // function dbInsert() {
-//   let user=123;
-//   console.log('и я здесь');
+//   let user = 123;
+//   console.log("и я здесь");
 //   fetch("/db.json").then(function (response) {
 //     response.text().then(function (text) {
-//       user=text;
+//       user = text;
 //       console.log(user);
 //       user = JSON.parse(user);
 //       console.log(user);
-     
-//      // document.getElementById('textUser').innerHTML=user.id_user;
 
+//       // document.getElementById('textUser').innerHTML=user.id_user;
 //     });
 //   });
 // }
 // dbInsert();
- document.addEventListener('click',dbInsert);
+// document.addEventListener("click", dbInsert);
+
+// document.body.addEventListener("click", (e) => {
+//   if (e.target.tagName === "BUTTON") {
+//     document.querySelectorAll("button-sign").forEach((i) => {
+//       alert("Данные успешно записаны!");
+//     });
+//     alert("Данные успешно записаны!");
+//   }
+// });
+
+//function adminSign() {
+  // let pass = document.getElementsByName("password");
+  // if (pass.values == "1234") {
+  //   document.getElementById("text-hidden").style.display = "block";
+  //   document.getElementsByClassName("button-sub").style.display = "none";
+  // } else {
+  //   alert("no");
+  // }
+
+  let button = document.getElementById("button-sub");
+  let password = document.getElementById("password");
+
+  button.addEventListener("click", () => {
+    if (password.value == "1234") {
+      alert("Okay!");
+    } else {
+      alert(password.value);
+      alert("no okay!");
+    }
+  });
+//}

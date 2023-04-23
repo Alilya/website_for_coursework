@@ -1,7 +1,9 @@
 const express = require("express");
 const app = express();
+
 //const database = require("./database/db");
 //const Table = database.Table;
+
 const http = require("http");
 const fs = require("fs");
 require("dotenv").config();
@@ -39,41 +41,34 @@ app.get("/timing", (req, res) => {
 app.get("/tutors", (req, res) => {
   res.render("tutors");
 });
+app.get("/admin", (req, res) => {
+  res.render("admin");
+});
 
 // app.get("/db.json", (req, res) => {
 //   console.log("я здесь");
 //   res.render("tutors");
 // });
 
-app.get("/user/:username", (req, res) => {
-  fetch("/db.json").then(function (response) {
-    response.text().then(function (text) {
-      user = text;
-      console.log(user);
-      user = JSON.parse(user);
-      console.log(user);
+// app.get("/user/:username", (req, res) => {
+//   //  fs.readFile("sign_up.ejs", (err, data) => {res.end(data)
 
-      // document.getElementById('textUser').innerHTML=user.id_user;
-    });
-    //  fs.readFile("sign_up.ejs", (err, data) => {res.end(data)
-    console.log(data);
-  });
-  let data = {
-    username: req.params.username,
-    hobbies: ["Footbal", "Scate", "Flowers"],
-  };
-  //  console.log(req.params);
-  res.render("user", data);
-});
+//   let data = {
+//     username: req.params.username,
+//     hobbies: ["Footbal", "Scate", "Flowers"],
+//   };
+//   //  console.log(req.params);
+//   res.render("user", data);
+// });
 
-app.post("/check-user", (req, res) => {
-  let username = req.body.username;
-  if (username == "") {
-    return res.redirect("/sign_up");
-  } else {
-    return res.redirect("/user/" + username);
-  }
-});
+// app.post("/check-user", (req, res) => {
+//   let username = req.body.username;
+//   if (username == "") {
+//     return res.redirect("/sign_up");
+//   } else {
+//     return res.redirect("/user/" + username);
+//   }
+// });
 
 // const { config } = require('dotenv');
 // const mysql= require('mysql');
@@ -114,28 +109,30 @@ app.post("/check-user", (req, res) => {
 //   }
 //  })
 
-app.get("/db.json", (req, res) => {
-  console.log("я здесь");
-  res.render("tutors");
-
- 
-});
+// app.get("/db.json", (req, res) => {
+//   console.log("я здесь");
+//   res.render("tutors");
+// });
 
 const mysql = require("mysql2/promise");
 const config = require("./config");
 
+//обновление значений в бд
 async function main() {
   const connection = await mysql.createConnection(config);
-  const [rows, fields] = await connection.execute(
-    "select * from user where id_user = 1"
+  let [rows, field] = await connection.execute(
+    "UPDATE `statistic` SET `count_click` = `count_click` + 1 where id_button=1"
   );
-  // console.log(rows[0]['name']);
-  let select = await connection.execute("select * from user where id_user = 1");
-  // console.log(rows[0]['telephone']);
-  let myjson = JSON.stringify(select);
+  
+  let myjson = JSON.stringify(rows);
   fs.writeFileSync("db.json", myjson);
   connection.end();
-
+  // const sql = `INSERT INTO users(name, age) VALUES('Sam', 31)`;
+ 
+  // connection.query(sql, function(err, results) {
+  //     if(err) console.log(err);
+  //     console.log(results);
+  // });
   return rows;
 }
 async function as() {
@@ -143,6 +140,10 @@ async function as() {
   return func;
 }
 as();
+
+
+
+
 
 // function writeToDb(data,res){
 //   data =JSON.parse(data,true);
