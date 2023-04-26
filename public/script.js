@@ -47,41 +47,48 @@ if (document.readyState !== "loading") {
 //   });
 // }
 
-  //выввод статистики
-  let button = document.getElementById("button-sub");
-  let password = document.getElementById("password");
-  function viewDiv() {
-    document.getElementById("text-hidden").style.display = "block";
-    document.getElementById("password").style.display = "none";
-    document.getElementById("img-admin").style.display = "none";
-    document.getElementById("button-sub").style.display = "none";
-   // makeCounter();
+//выввод статистики
+let button = document.getElementById("button-sub");
+let password = document.getElementById("password");
+function viewDiv() {
+  document.getElementById("text-hidden").style.display = "block";
+  document.getElementById("password").style.display = "none";
+  document.getElementById("img-admin").style.display = "none";
+  document.getElementById("button-sub").style.display = "none";
+  // makeCounter();
+}
+let buttons;
+// document.addEventListener("DOMContentLoaded", makeCounter);
+
+//  function makeCounter() {
+//    buttons = document.querySelectorAll(".button-price");
+//    for (let btn of buttons) {
+//      btn.onclick = btn_click();
+//    }
+//  }
+//  function btn_click() {
+//    let count = (+this.textContent || 0) + 1;
+//    this.textContent = count;
+//    console.log(count);
+//  }
+
+button.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  if (password.value == "1234") {
+    viewDiv();
+    getRes();
+  } else {
+    alert(password.value);
+    alert("Неверный пароль!");
   }
-  let buttons;
-  // document.addEventListener("DOMContentLoaded", makeCounter);
+});
+
+fetch("/adminDB")
+.then(response => response.json()) // Декодируем ответ в формате json
+.then(data => console.log(data));
+console.log(data);
+document.querySelector(".posts").innerHTML+=<h4>${data[0]}</h4>;
 
 
-  //  function makeCounter() {
-  //    buttons = document.querySelectorAll(".button-price");
-  //    for (let btn of buttons) {
-  //      btn.onclick = btn_click();
-  //    }
-  //  }
-  //  function btn_click() {
-  //    let count = (+this.textContent || 0) + 1;
-  //    this.textContent = count;
-  //    console.log(count);
-  //  }
-
-  button.addEventListener("click", (e) => {
-    e.preventDefault();
-    
-    if (password.value == "1234") {
-      viewDiv();
-     
-    } else {
-      alert(password.value);
-      alert("Неверный пароль!");
-    }
-  });
-//}
+ 
