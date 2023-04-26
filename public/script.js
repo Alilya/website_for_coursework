@@ -56,24 +56,26 @@ function viewDiv() {
   document.getElementById("img-admin").style.display = "none";
   document.getElementById("button-sub").style.display = "none";
 
-  fetch("/adminDB") //вот тут фигня получается, выводит "{}" без значений
-    .then((response) => print(JSON.stringify(response, null, 4)));
+  fetch("/adminDB") //вот тут фигня получается, выводит без значений
+    .then((response) => response.json())
+    .then(function(response){
+      //console.log(response)
+      for(let obj in response){
+        print(response[obj].name_button, response[obj].count_click);
+      }
+    })
 
-    
-  //.then((response) => response.json())
-  // .catch(function (error) {
-  //   console.log("error", error);
-  // });
-  // let arr=JSON.parse(response);
-  // print(arr)
-
-  //console.log(response)
-
-  function print(data) {
-    document.querySelector(".posts").innerHTML = `<li><h4>${data}</h4></li>`;
-    console.log(data);
+   function print(name,click) {
+    document.querySelector(".posts").innerHTML += 
+    `<h4>name=${name} и Количество нажатий - ${click}</h4>
+`;
+   // console.log("Пришло в print  " + data);
   }
+
 }
+
+
+
 //let buttons;
 // document.addEventListener("DOMContentLoaded", makeCounter);
 
@@ -89,6 +91,9 @@ function viewDiv() {
 //    console.log(count);
 //  }
 
+
+
+
 button.addEventListener("click", (e) => {
   e.preventDefault();
   // if (password.value == "1234") {
@@ -98,8 +103,3 @@ button.addEventListener("click", (e) => {
   //alert("Неверный пароль!");
   //}
 });
-
-// for(let key in res){
-//   console.log(key+"!!!!")
-// }
-// document.querySelector(".posts").innerHTML = `<li><h4>${data}</h4></li>`;
