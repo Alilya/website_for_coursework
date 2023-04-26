@@ -55,9 +55,26 @@ function viewDiv() {
   document.getElementById("password").style.display = "none";
   document.getElementById("img-admin").style.display = "none";
   document.getElementById("button-sub").style.display = "none";
-  // makeCounter();
+
+  fetch("/adminDB") //вот тут фигня получается, выводит "{}" без значений
+    .then((response) => print(JSON.stringify(response, null, 4)));
+
+    
+  //.then((response) => response.json())
+  // .catch(function (error) {
+  //   console.log("error", error);
+  // });
+  // let arr=JSON.parse(response);
+  // print(arr)
+
+  //console.log(response)
+
+  function print(data) {
+    document.querySelector(".posts").innerHTML = `<li><h4>${data}</h4></li>`;
+    console.log(data);
+  }
 }
-let buttons;
+//let buttons;
 // document.addEventListener("DOMContentLoaded", makeCounter);
 
 //  function makeCounter() {
@@ -74,21 +91,15 @@ let buttons;
 
 button.addEventListener("click", (e) => {
   e.preventDefault();
-
-  if (password.value == "1234") {
-    viewDiv();
-    getRes();
-  } else {
-    alert(password.value);
-    alert("Неверный пароль!");
-  }
+  // if (password.value == "1234") {
+  viewDiv();
+  //} else {
+  // alert(password.value);
+  //alert("Неверный пароль!");
+  //}
 });
 
-fetch("/adminDB")
-.then(response => response.json()) // Декодируем ответ в формате json
-.then(data => console.log(data));
-console.log(data);
-document.querySelector(".posts").innerHTML+=<h4>${data[0]}</h4>;
-
-
- 
+// for(let key in res){
+//   console.log(key+"!!!!")
+// }
+// document.querySelector(".posts").innerHTML = `<li><h4>${data}</h4></li>`;
