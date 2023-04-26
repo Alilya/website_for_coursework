@@ -78,7 +78,7 @@ app.get("/adminDB", (req, res) => {
     let myjson = JSON.stringify(result);//
     fs.writeFileSync("db.json", myjson);//
     res.send(result);
-   console.log(result);
+   //console.log(result);
   });
 
   // res.send(as());

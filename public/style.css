@@ -603,3 +603,14 @@ body {
  .button-sub{
     display: block;
  }
+.graf{
+    display: inline-flex;
+    
+}
+#canvas{
+
+    display: none;
+    
+    width: 100%;
+    margin-left: 25%;
+}

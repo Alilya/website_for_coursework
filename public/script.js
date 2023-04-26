@@ -47,6 +47,8 @@ if (document.readyState !== "loading") {
 //   });
 // }
 
+
+
 //выввод статистики
 let button = document.getElementById("button-sub");
 let password = document.getElementById("password");
@@ -55,42 +57,51 @@ function viewDiv() {
   document.getElementById("password").style.display = "none";
   document.getElementById("img-admin").style.display = "none";
   document.getElementById("button-sub").style.display = "none";
-  //document.getElementById("myCanvas").style.display = "none";
+  document.getElementById("canvas").style.display = "inline-block";
 
-  fetch("/adminDB") //вот тут фигня получается, выводит без значений
+  fetch("/adminDB") //выводит основную инфу
     .then((response) => response.json())
     .then(function (response) {
-      //console.log(response)
+      let arr = [];
       for (let obj in response) {
-        print(response[obj].name_button, response[obj].count_click);
+        arr.push( response[obj].count_click)
+        //print(response[obj].name_button, response[obj].count_click);
+        print(arr,response[obj].name_button, response[obj].count_click);
       }
-      fill(response[obj].count_click);
     });
+    
+}
 
-  function print(name, click) {
-    document.querySelector(".posts")
-    .innerHTML += `<h4>name=${name} и Количество нажатий - ${click}</h4>`;
-   
-    // console.log("Пришло в print  " + data);
-  }
- 
+function print(arr,name, click) {
+  document.querySelector(".posts").innerHTML += `<h4 class="${name}ID"> name=${name} и Количество нажатий - ${click}</h4>`;
+  if(arr.length<4) return
+  f(arr[0]);
+ }
+
+function f(num){
+   console.log(num +" это f")
+  //myVinyls["Абонемент ЭКСКУРСИЯ"] = num;
+let number = Number(num);
+  var myVinyls = {
+    /////////переопределение объекта
+    "Пробное/разовое занятие": 10,
+    "Абонемент на 8 занятий": 10,
+    "Абонемент ЭКСКУРСИЯ": 10,
+    "Абонемент на 6 занятий": 10,
+    "Абонемент на 12 занятий": 10,
+    "Безлимитный абонемент на месяц": 10,
+    "Безлимитный абонемент на месяц+": 10,
+    "Безлимитный абонемент на год": 10,
+  };
+
+  //myVinyls["Абонемент ЭКСКУРСИЯ"] = number;
+  return myVinyls
 }
-function fill(click){
-  for(let obj in click){
-    let arr = {Classic:click[obj]}
-  }
-  return arr
-}
-var myVinyls = {
-  ////////////////////////////////////////////////////////////////
-  "Classical music": 10,
-  "Alternative rock": 14,
-  Pop: 2,
-  Jazz: 12,
-}
+
+//f(12);
 
 var myCanvas = document.getElementById("myCanvas");
-myCanvas.width = 300;
+myCanvas.width = 600;
 myCanvas.height = 300;
 var ctx = myCanvas.getContext("2d");
 
@@ -116,13 +127,6 @@ function drawBar(
   ctx.fillRect(upperLeftCornerX, upperLeftCornerY, width, height);
   ctx.restore();
 }
-// var myVinyls = {
-//   ////////////////////////////////////////////////////////////////
-//   "Classical music": 10,
-//   "Alternative rock": 14,
-//   Pop: 2,
-//   Jazz: 12,
-// };
 var Barchart = function (options) {
   this.options = options;
   this.canvas = options.canvas;
@@ -183,6 +187,7 @@ var Barchart = function (options) {
       this.canvas.width / 2,
       this.canvas.height
     );
+
     this.ctx.restore();
     barIndex = 0;
     var legend = document.querySelector("legend[for='myCanvas']");
@@ -203,12 +208,21 @@ var Barchart = function (options) {
 
 var myBarchart = new Barchart({
   canvas: myCanvas,
-  seriesName: "Vinyl records",
+  seriesName: "Статистика по курсам",
   padding: 20,
   gridScale: 5,
   gridColor: "#eeeeee",
-  data: myVinyls,
-  colors: ["#a55ca5", "#67b6c7", "#bccd7a", "#eb9743"],
+  data: f(),
+  colors: [
+    "#a55ca5",
+    "#FA8072",
+    "#bccd7a",
+    "#eb9743",
+    "#20B2AA",
+    "#000080",
+    "#A52A2A",
+    "#00FF7F",
+  ],
 });
 
 myBarchart.draw();
