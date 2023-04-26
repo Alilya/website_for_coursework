@@ -9,7 +9,7 @@
   <body>
     <%- include ('blocks/nawbar') -%>
 
-    <img class="admin-img" src="https://i.gifer.com/XOsX.gif" />
+    <img class="admin-img" id="img-admin" src="https://i.gifer.com/XOsX.gif" />
     <form class="text-admin">
       <div class="input-sign">
         <div class="input-password">
@@ -40,42 +40,6 @@
 
     <div id="text-hidden"><label>Статистика</label></div>
 
-    <script>
-      //выввод статистики
-      let button = document.getElementById("button-sub");
-      let password = document.getElementById("password");
-
-      button.addEventListener("click", (e) => {
-        e.preventDefault();
-        if (password.value == "1234") {
-          viewDiv();
-         
-        } else {
-          alert(password.value);
-          alert("no okay!");
-        }
-
-        function viewDiv() {
-          document.getElementById("text-hidden").style.display = "block";
-          document.getElementById("button-sub").style.display = "none";
-          makeCounter();
-        }
-
-
-        let buttons;
-       // document.addEventListener("DOMContentLoaded", makeCounter);
-        function makeCounter() {
-          buttons = document.getElementsByClassName("button-price");
-          for (let btn of buttons) {
-            btn.onclick = btn_click;
-          }
-        }
-        function btn_click() {
-          let count = (+this.textContent || 0) + 1;
-          this.textContent = count;
-          console.log(count);
-        }
-      });
-    </script>
+    <script type="application/javascript" src="/script.js"></script>
   </body>
 </html>
