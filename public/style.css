@@ -573,7 +573,8 @@ body {
 }
 
 .directions-main {
-    display: flex;
+    display: block;
+    
     margin: 2%;
 }
 
@@ -603,14 +604,152 @@ body {
  .button-sub{
     display: block;
  }
-.graf{
-    display: inline-flex;
-    
-}
-#canvas{
 
+#myChart{
     display: none;
-    
     width: 100%;
+ 
+}
+
+
+
+
+
+/* набор текста печатная машинка */
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .text h2 {
+    margin-bottom: 30px;
+    margin-top: 10px;
+    display: flex;
+    color: #000000;
+    font-family: monospace;
+    font-size: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #000000;
+    width: 27ch;
+    animation: cursor 0.75s step-end infinite, printed-text 3s steps(27);
+  }
+  
+  @keyframes cursor {
+    0% {
+      border-color: #000000;
+    }
+    50% {
+      border-color: transparent;
+    }
+    100% {
+      border-color: #000000;
+    }
+  }
+  @keyframes printed-text {
+    from {
+      width: 0;
+    }
+  }
+  
+  /*parallax*/
+  .wrapper-parallax {
+    margin: 0 auto;
+    margin-top: 5rem;
+    display: grid;
+    place-items: center;
+    width: 100%;
+  }
+  .button {
+    display: grid;
+    place-items: center;
+  
+    width: max-content;
+    height: 50px;
+    color: rgb(2, 23, 43);
+    background-color: #ffffff;
+    border: 1px solid rgb(62, 62, 62);
+    border-radius: 4px;
+    cursor: pointer;
+    
+    margin: 20px;
+    
+    box-shadow: 0px 5px 10px 0px rgba(0,0, 0, 0.5);
+  }
+  .a{
+  text-decoration: none;
+  
+  }
+  .button:hover{
+    background-color: #d0d2df;
+    transition: background-color 0.135s ease-in-out;
+  }
+  .title {
+    margin: 3px;
+  }
+  .circle {
+    position: absolute;
+    top: 3rem;
+    right: 3rem;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: rgb(135, 179, 255);
+  
+    
+    box-shadow: 0px 10px 5px 0px rgba(0,0, 0, 0.4);
+  }
+  .circle2 {
+    position: absolute;
+    bottom: 5rem;
+    right: 6rem;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: rgb(23, 37, 171);
+  
+    
+    box-shadow: 0px 10px 5px 0px rgba(0,0, 0, 0.4);
+  }
+  .circle3 {
+    position: absolute;
+    bottom: 1rem;
+    left: 6rem;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: rgb(9, 16, 79);
+    
+    box-shadow: 0px 10px 5px 0px rgba(0,0, 0, 0.4);
+  }
+  
+  .parallax {
+    width: 50%;
+    padding: 5rem;
+    min-height: 10rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .parallax__layer {
+    transition: transform 0.3s linear;
+    z-index: -1;
+  }
+  .more-info{
+    display: flex;
+    justify-content: center;
+    width: 50%;
     margin-left: 25%;
+    margin-top: 30px;
+  
+    border-radius: 8px;
+  }
+  .photo-portfolio{
+    width: 50%;
+  }
+  #more-text-interesting{
+    display: none;
+  }
+  .text-dir{
+    font-size: 30px;
+    font-weight: 200;  
 }

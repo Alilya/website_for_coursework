@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
     <title>Студия танца "Piter"</title>
+    <link rel="icon" href="https://i.pinimg.com/736x/6a/99/01/6a9901fc16f285d293c41b6394787634.jpg">
     <link href="/style.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -11,11 +12,58 @@
     <%- include ('blocks/nawbar') -%>
         <div class="directions-main">
             <div class="text-directions">
-                <h4>Танцевальная студия "DANCE" - это место, где каждый найдет себе занятие по душе!
+              <div class="text-navb">
+                  <div class="wrapper">
+                    <div class="text">
+                      <h2>Танцевальная студия "DANCE"</h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+                <h4> - это место, где каждый найдет себе занятие по душе!
                     Танцы для взрослых и детей, растяжка, хореографические постановки и многое другое!
                     И все это в одном месте!
                     Мы готовы работать с вами на результат!</h4>
-                <h4>Наши направления: </h4>
+                <h4>Приходите к нам, чтобы стать лучше! </h4>
+                <h4>Коллектив студии танца "DANCE" активно участвует в различных конкурсах, фестивалях, выступает на
+                    различных площадках города.</h4>
+            </div>
+            
+            <div>
+                <img src="https://www.danceopen.com/templates/yootheme/cache/darian_affishe_copyright1-c54f8082.jpeg" class="img-dir">
+            </div>
+
+            <div class="wrapper-parallax">
+                <div class="parallax">
+                  <h1 class="parallax__layer title" data-speed="0.05">
+                    Научим всему
+                  </h1>
+          
+                  <a href="#more-text-interesting">
+                    <button
+                      class="parallax__layer button"
+                      type="button"
+                      data-speed="0.05"
+                      onmousedown="viewDiv()"
+                    >
+                      Узнать больше
+                    </button></a
+                  >
+          
+                  <div class="parallax__layer circle" data-speed="0.15"></div>
+                  <div class="parallax__layer circle2" data-speed="0.10"></div>
+                  <div class="parallax__layer circle3" data-speed="0.11"></div>
+                </div>
+              </div>
+              <div class="more-info">
+                <div id="more-text-interesting">
+                  <article class="text-dir">
+                    <h4>Наши направления: </h4>
+                  </article>
+          
+                  <div class="text-dir">
+                   
                 <ul>
                     <li>хип-хоп; </li>
                     <li>бальные танцы;</li>
@@ -27,15 +75,14 @@
                     <li>контемпорари;</li>
                     <li>пластика;</li>
                 </ul>
-                <h4> Приходите к нам, чтобы стать лучше! </h4>
-                <h4>Коллектив студии танца "DANCE" активно участвует в различных конкурсах, фестивалях, выступает на
-                    различных площадках города.</h4>
-            </div>
-            <div>
-                <img src="https://www.danceopen.com/templates/yootheme/cache/darian_affishe_copyright1-c54f8082.jpeg" class="img-dir">
-            </div>
+                  </div>
+                </div>
+              </div>
+
+           
+
         </div>
-       
+        <script type="application/javascript" src="/index.js"></script>
 </body>
 
 <%- include ('blocks/footer') -%>

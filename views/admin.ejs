@@ -2,6 +2,10 @@
 <html lang="ru">
   <head>
     <title>Студия танца "Piter"</title>
+    <link
+      rel="icon"
+      href="https://i.pinimg.com/736x/6a/99/01/6a9901fc16f285d293c41b6394787634.jpg"
+    />
     <link href="/style.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
@@ -39,10 +43,17 @@
     </form>
 
     <div id="text-hidden" class="posts"><label>Статистика</label></div>
-    <div class="graf" id="canvas">
+    <!-- <div class="graf" id="canvas">
       <canvas id="myCanvas"></canvas>
       <legend for="myCanvas"></legend>
-    </div>
+    </div> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+
+    <div class="con" id="con">
+      <div style="width: 70%">
+      <canvas id="myChart" style="display: none;" width="500px"></canvas>
+      </div>
+      </div> 
     <script type="application/javascript" src="/script.js"></script>
   </body>
 </html>
