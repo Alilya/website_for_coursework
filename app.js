@@ -1,16 +1,21 @@
 const express = require("express");
 const app = express();
-
+const bodyParser = require("body-parser");
 const config = require("./config");
 const http = require("http");
 const fs = require("fs");
+
+const PORT = process.env.PORT || 8081;
+
 require("dotenv").config();
+
 app.set("view engine", "ejs");
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static("public"));
 
-const PORT = process.env.PORT || 8081;
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.listen(PORT, () => {
   console.log(`Server started: http://localhost:${PORT}`);
@@ -43,44 +48,29 @@ app.get("/admin", (req, res) => {
   res.render("admin");
 });
 const mysql = require("mysql2/promise");
-//const config = require("./config");
-
-//обновление значений в бд
-// async function main() {
-//   const connection = await mysql.createConnection(config);
-//   let [rows, field] = await connection.execute(
-//     //"UPDATE `statistic` SET `count_click` = `count_click` + 1 where id_button=1"
-//     "select * from statistic"
-//   );
-//   console.log(rows[0]);
-//   let myjson = JSON.stringify(rows);
-//   // fs.writeFileSync("db.json", myjson);
-
-//   // const sql = `INSERT INTO users(name, age) VALUES('Sam', 31)`;
-
-//   // connection.query(sql, function(err, results) {
-//   //     if(err) console.log(err);
-//   //     console.log(results);
-//   // });
-//   connection.end();
-//   return rows;
-// }
-// async function as() {
-//   let func = await main();
-//   console.log("мы на бэке");
-//   return func;
-// }
 
 app.get("/adminDB", (req, res) => {
-    config.query("SELECT * FROM webdb.statistic join button on button.id_button=statistic.id_button",
-     (error, result) => {
-    if (error) throw error;
-    let myjson = JSON.stringify(result);//
-    fs.writeFileSync("db.json", myjson);//
-    res.send(result);
-   //console.log(result);
-  });
-
-  // res.send(as());
+  config.query(
+    "SELECT * FROM webdb.statistic join button on button.id_button=statistic.id_button",
+    (error, result) => {
+      if (error) throw error;
+      let myjson = JSON.stringify(result); //
+      fs.writeFileSync("db.json", myjson); //
+      res.send(result);
+      
+    }
+  );
 });
 
+
+app.post("/clickDB", (req, res) => {
+  let answer = req.body.number;
+  let dataID=answer;
+  console.log("answer - " + answer);
+  config.query(
+    "UPDATE `statistic` SET `count_click` = `count_click` + 1 where id_button = ?", dataID,
+    (err, results) => {
+      if (err) console.log("ERROR_________________" + err);
+    }
+  );
+});

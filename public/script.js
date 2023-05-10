@@ -1,9 +1,8 @@
 "use strict";
-//выввод статистики
-let button = document.getElementById("button-sub");
+//let button = document.getElementById("button-sub");
 let password = document.getElementById("password");
 
-function viewDiv() {
+async function viewDiv() {
   document.getElementById("text-hidden").style.display = "block";
   document.getElementById("password").style.display = "none";
   document.getElementById("img-admin").style.display = "none";
@@ -11,20 +10,23 @@ function viewDiv() {
   document.getElementById("myChart").style.display = "block";
 
   fetch("/adminDB") //выводит основную инфу
-    .then((response) => response.json())
-    .then(function (response) {
+    .then((res) => res.json())
+    .then(function (res) {
       let arr = [];
-      for (let obj in response) {
-        arr.push(response[obj].count_click);
+      for (let obj in res) {
+        arr.push(res[obj].count_click);
         //print(response[obj].name_button, response[obj].count_click);
-        print(arr, response[obj].name_button, response[obj].count_click);
+        print(arr, res[obj].name_button, res[obj].count_click);
       }
+    })
+    .catch((error) => {
+      throw error;
     });
 
   fetch("/adminDB")
     .then((response) => response.json())
     .then(function (obj) {
-      console.log(obj);
+      //console.log(obj);
       let acc = { name_button: [], count_click: [] };
 
       obj.forEach(function (item) {
@@ -32,7 +34,7 @@ function viewDiv() {
         acc.count_click.push(item.count_click);
       });
 
-      console.log(acc);
+      //console.log(acc);
       chart(acc.name_button, acc.count_click);
     });
 }
@@ -43,13 +45,47 @@ function print(arr, name, click) {
   ).innerHTML += `<p> Название курса: ${name}<br> Количество записей на курс: ${click}</p>`;
   if (arr.length < 8) return;
   //pringGraph(arr);
-  console.log(arr);
+  // console.log(arr);
 }
 
-//let response = await fetch('/1');
-//if (response.ok){
-// let json =await response.json()
-//}
+document
+.querySelectorAll(".button-price")
+.forEach((btn) => {
+  btn.addEventListener("mousedown", (e) => {
+    let buttonId = e.target.value;
+    fetch("/clickDB", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        number: buttonId,
+      }),
+    });
+  });
+});
+
+// const jsString = JSON.stringify({
+//   receiver: buttonsVal
+//})
+
+//   let user = {
+//     name: 'John',
+//     surname: 'Smith'
+//   };
+
+//   let response = await fetch('/clickDB', {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json;charset=utf-8'
+//     },
+//     body: JSON.stringify(user)
+//   });
+
+//   let result = await response.json();
+//   alert(result.message);
+// }
 
 function chart(lab, dat) {
   const ctx = document.getElementById("myChart");
@@ -77,11 +113,12 @@ function chart(lab, dat) {
     },
   });
 }
-
+let button = document.getElementById("button-sub");
 
 button.addEventListener("click", (e) => {
   e.preventDefault();
   if (password.value === "1234") {
+    //////////////
     viewDiv();
     return true;
   } else {
@@ -90,7 +127,6 @@ button.addEventListener("click", (e) => {
     return false;
   }
 });
-
 
 //let response = await fetch('/1');
 //if (response.ok){
